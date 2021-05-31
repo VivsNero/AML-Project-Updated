@@ -22,8 +22,9 @@ class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 cap = cv2.VideoCapture(0)
 
 data = ''
+lastLabel = ''
 
-#SpotifyIntegrationMain.main()
+SpotifyIntegrationMain.main()
 
 def GetUserInput():
     data = input()
@@ -52,9 +53,13 @@ while True:
         # make a prediction on the ROI, then lookup the class
 
             preds = classifier.predict(roi)[0]
-            print("\nprediction = ",preds)
+            #print("\nprediction = ",preds)
             label=class_labels[preds.argmax()]
-            print("\nprediction max = ",preds.argmax())
+            if (label == 'Happy' or label == 'Sad' or label =='Angry') and lastLabel != label:# and data != '':
+                SpotifyIntegrationMain.getSong(label)
+                lastLabel = label
+                data = ''
+            #print("\nprediction max = ",preds.argmax())
             print("\nlabel = ",label)
             label_position = (x,y)
             cv2.putText(frame,label,label_position,cv2.FONT_HERSHEY_SIMPLEX,2,(0,255,0),3)
@@ -64,6 +69,7 @@ while True:
     cv2.imshow('Emotion Detector',frame)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+    
 
 cap.release()
 cv2.destroyAllWindows()

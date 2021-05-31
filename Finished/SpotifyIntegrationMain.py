@@ -94,7 +94,7 @@ def getSong(emotion):
 
     start_playback(track, spotifyObj)
 
-def emotionCompiler(emotion = 'happy'):
+def emotionCompiler(emotion = 'Happy'):
     seed = [0.5 #acousticness
         ,0.5 #danceability
         ,0.5 #target_energy
@@ -107,7 +107,7 @@ def emotionCompiler(emotion = 'happy'):
         ,116 #target_tempo
         ,0.5 #valence (happiness)
         ]
-    if (emotion == "happy"):
+    if (emotion == "Happy"):
         seed = [0.5 #acousticness
             ,0.75 #danceability
             ,0.75 #target_energy
@@ -121,7 +121,7 @@ def emotionCompiler(emotion = 'happy'):
             ,1 #valence
         ]
 
-    if (emotion == "sad"):
+    if (emotion == "Sad"):
         seed = [0.5 #acousticness
             ,0.25 #danceability
             ,0.25 #target_energy
@@ -135,7 +135,7 @@ def emotionCompiler(emotion = 'happy'):
             ,0 #valence
         ]
 
-    if (emotion == "angry"):
+    if (emotion == "Angry"):
         seed = [0.5 #acousticness
         ,0.25 #danceability
         ,1 #target_energy
