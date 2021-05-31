@@ -12,7 +12,6 @@ from keras.preprocessing import image
 import cv2
 import numpy as np
 import SpotifyIntegrationMain
-import threading
 
 face_classifier = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
 classifier =load_model('./Emotion_Detection.h5')
@@ -21,16 +20,9 @@ class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 
 cap = cv2.VideoCapture(0)
 
-data = ''
 lastLabel = ''
 
 SpotifyIntegrationMain.main()
-
-def GetUserInput():
-    data = input()
-
-inThread = threading.Thread(target=GetUserInput)
-inThread.start()
 
 while True:
     # Grab a single frame of video
