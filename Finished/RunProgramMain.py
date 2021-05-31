@@ -3,7 +3,7 @@ PyPower Projects
 Emotion Detection Using AI
 '''
 
-#USAGE : python test.py
+#USAGE : python RunProgramMain.py
 
 from keras.models import load_model
 from time import sleep
@@ -21,7 +21,15 @@ class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 
 cap = cv2.VideoCapture(0)
 
-SpotifyIntegrationMain.main()
+data = ''
+
+#SpotifyIntegrationMain.main()
+
+def GetUserInput():
+    data = input()
+
+inThread = threading.Thread(target=GetUserInput)
+inThread.start()
 
 while True:
     # Grab a single frame of video
