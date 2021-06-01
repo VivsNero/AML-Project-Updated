@@ -14,7 +14,8 @@ import numpy as np
 import SpotifyIntegrationMain
 
 face_classifier = cv2.CascadeClassifier('./haarcascade_frontalface_default.xml')
-classifier =load_model('./Emotion_Detection.h5')
+#classifier =load_model('./Emotion_Detection.h5')
+classifier =load_model('./finalmodel.h5')
 
 class_labels = ['Angry','Happy','Neutral','Sad','Surprise']
 
